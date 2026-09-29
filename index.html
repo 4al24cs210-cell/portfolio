@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of THANISH S. - Computer Science and Engineering Student, Software Developer and Data Analytics Enthusiast.">
+  <title>THANISH S. | Software Developer & CSE Engineer</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Interactive Particle Background Canvas (Animation 1) -->
+  <canvas id="particle-canvas" class="particle-canvas"></canvas>
+
+  <!-- Ambient Glow Gradients -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">THANISH</span>
+        <span class="logo-accent">.DEV</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#toolbox" class="nav-link">Toolbox</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-outline-accent btn-sm nav-cta">
+          <i class="fa-solid fa-paper-plane"></i> Let's Talk
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">THANISH</span>
+        <span class="logo-accent">.DEV</span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close navigation menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <ul class="drawer-list">
+      <li><a href="#about" class="drawer-link"><i class="fa-solid fa-user-astronaut"></i> About</a></li>
+      <li><a href="#toolbox" class="drawer-link"><i class="fa-solid fa-terminal"></i> Interactive CLI</a></li>
+      <li><a href="#education" class="drawer-link"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#skills" class="drawer-link"><i class="fa-solid fa-code"></i> Skills</a></li>
+      <li><a href="#projects" class="drawer-link"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+      <li><a href="#certifications" class="drawer-link"><i class="fa-solid fa-certificate"></i> Certifications</a></li>
+      <li><a href="#interests" class="drawer-link"><i class="fa-solid fa-chart-pie"></i> Interests</a></li>
+      <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="mailto:thanish.s7134@gmail.com" class="btn btn-primary btn-full">
+        <i class="fa-solid fa-envelope"></i> thanish.s7134@gmail.com
+      </a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content reveal-on-scroll">
+          <!-- Status Pill -->
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span class="status-text">Seeking Internship Opportunities</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-greeting">Hi, my name is</span>
+            <span class="gradient-text hero-name">THANISH S.</span>
+          </h1>
+
+          <!-- Dynamic Typing Role (Animation 3) -->
+          <div class="hero-typewriter-wrap">
+            <span class="typewriter-prefix">&gt;</span>
+            <span class="typewriter-text" id="typewriter-text"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+
+          <p class="hero-description">
+            Enthusiastic Computer Science and Engineering student interested in software development, data analytics, and problem solving. Seeking an internship opportunity to apply my programming and analytical skills to real-world projects, gain practical industry experience, and contribute effectively to a professional development team.
+          </p>
+
+          <!-- Interactive Action Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-rocket"></i> Explore Projects
+            </a>
+            <a href="#toolbox" class="btn btn-secondary">
+              <i class="fa-solid fa-terminal"></i> Try Developer CLI
+            </a>
+            <a href="#contact" class="btn btn-outline-accent">
+              <i class="fa-solid fa-envelope"></i> Contact Me
+            </a>
+          </div>
+
+          <!-- Hero Metrics Strip (Animation 6: Counter) -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-number" data-target="3">0</span><span class="metric-plus">+</span>
+              <span class="metric-label">Featured Projects</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-number" data-target="3">0</span>
+              <span class="metric-label">Certifications</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-number" data-target="15">0</span><span class="metric-plus">+</span>
+              <span class="metric-label">Core Tech Skills</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-static">VTU</span>
+              <span class="metric-label">AIET Engineering</span>
+            </div>
+          </div>
+
+          <!-- Hero Direct Social Bar -->
+          <div class="hero-social-strip">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub Profile" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/thanish-s-a9aa77432" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn Profile" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:thanish.s7134@gmail.com" class="social-icon-btn" title="Send Email" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="tel:8296457646" class="social-icon-btn" title="Call Direct" aria-label="Phone">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- HERO VISUAL: 3D Developer Avatar with Rotating Orbit Badges (Animation 2) -->
+        <div class="hero-visual reveal-on-scroll">
+          <div class="avatar-showcase-wrapper" id="avatar-card">
+            <!-- Glowing Rotating Ring -->
+            <div class="rotating-halo"></div>
+
+            <!-- Avatar Container -->
+            <div class="avatar-card">
+              <img src="assets/images/developer_avatar.jpg" alt="THANISH S. Developer Avatar" class="avatar-img" width="460" height="460" loading="eager">
+              <div class="avatar-overlay-gradient"></div>
+              
+              <div class="avatar-badge-caption">
+                <span class="caption-name">THANISH S.</span>
+                <span class="caption-role">B.E. Computer Science & Eng.</span>
+              </div>
+            </div>
+
+            <!-- Floating Satellite Badges (Orbit Animation) -->
+            <div class="orbit-chip orbit-chip-1" title="Spring Boot & Java">
+              <i class="fa-brands fa-java text-accent"></i>
+              <span>Java & Spring Boot</span>
+            </div>
+
+            <div class="orbit-chip orbit-chip-2" title="Python Computer Vision">
+              <i class="fa-brands fa-python text-accent"></i>
+              <span>Python & Vision</span>
+            </div>
+
+            <div class="orbit-chip orbit-chip-3" title="React & Modern Web">
+              <i class="fa-brands fa-react text-accent"></i>
+              <span>React & Tailwind</span>
+            </div>
+
+            <div class="orbit-chip orbit-chip-4" title="AIET VTU Student">
+              <i class="fa-solid fa-graduation-cap text-accent"></i>
+              <span>AIET • VTU</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DEVELOPER TOOLBOX & CLI (New Professional Tool) -->
+    <section class="section bg-elevated" id="toolbox">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-terminal"></i> Interactive Tool</span>
+          <h2 class="section-title">Developer Terminal & CLI</h2>
+          <p class="section-desc">Experience my profile through an interactive command-line interface. Type commands or click the shortcut chips below.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="cli-container reveal-on-scroll">
+          <!-- Terminal Window -->
+          <div class="cli-window">
+            <div class="cli-header">
+              <div class="cli-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="cli-title">thanish@portfolio:~ (bash)</div>
+              <div class="cli-actions">
+                <button class="cli-header-btn" onclick="clearTerminal()" title="Clear Terminal"><i class="fa-solid fa-trash-can"></i> Clear</button>
+              </div>
+            </div>
+
+            <div class="cli-body" id="cli-body">
+              <div class="cli-line intro-text">
+                <span class="cli-highlight">Welcome to Thanish S.'s Interactive Profile CLI!</span>
+              </div>
+              <div class="cli-line text-muted">
+                Type <span class="cli-cmd-hint">help</span> to list all commands, or click any shortcut button below.
+              </div>
+              <div class="cli-line">
+                <span class="cli-prompt">visitor@thanish.dev:~$</span> <span class="cli-cmd-preview">quick-summary</span>
+              </div>
+              <div class="cli-response">
+                <p>👤 <strong>THANISH S.</strong> | CSE Student at Alva's Institute of Engineering & Technology (VTU)</p>
+                <p>🎯 Seeking Internship in Software Development, Data Analytics, and Problem Solving.</p>
+                <p>📞 Phone: 8296457646 | ✉️ thanish.s7134@gmail.com</p>
+              </div>
+              <!-- Dynamic lines append here -->
+            </div>
+
+            <form class="cli-input-row" id="cli-form" onsubmit="handleCliCommand(event)">
+              <span class="cli-prompt">visitor@thanish.dev:~$</span>
+              <input type="text" id="cli-input" class="cli-input" placeholder="Type 'help', 'skills', 'projects', 'contact'..." autocomplete="off" spellcheck="false">
+              <button type="submit" class="cli-submit-btn"><i class="fa-solid fa-arrow-turn-down"></i></button>
+            </form>
+          </div>
+
+          <!-- Quick Command Chips -->
+          <div class="cli-shortcuts">
+            <span class="shortcuts-label"><i class="fa-solid fa-bolt text-accent"></i> Quick Run:</span>
+            <button class="cli-chip" onclick="runShortcut('help')"><code>help</code></button>
+            <button class="cli-chip" onclick="runShortcut('skills')"><code>skills</code></button>
+            <button class="cli-chip" onclick="runShortcut('projects')"><code>projects</code></button>
+            <button class="cli-chip" onclick="runShortcut('education')"><code>education</code></button>
+            <button class="cli-chip" onclick="runShortcut('certs')"><code>certs</code></button>
+            <button class="cli-chip" onclick="runShortcut('interests')"><code>interests</code></button>
+            <button class="cli-chip" onclick="runShortcut('contact')"><code>contact</code></button>
+            <button class="cli-chip" onclick="runShortcut('clear')"><code>clear</code></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & OBJECTIVE SECTION -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-compass"></i> Career Overview</span>
+          <h2 class="section-title">About & Objective</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card main-objective-card tilt-card reveal-on-scroll">
+            <div class="card-icon-bubble">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>Career Objective</h3>
+            <p class="objective-text">
+              Enthusiastic Computer Science and Engineering student interested in <strong>software development</strong>, <strong>data analytics</strong>, and <strong>problem solving</strong>. Seeking an internship opportunity to apply my programming and analytical skills to real-world projects, gain practical industry experience, and contribute effectively to a professional development team.
+            </p>
+            <div class="objective-tags">
+              <span class="tag"><i class="fa-solid fa-code"></i> Software Development</span>
+              <span class="tag"><i class="fa-solid fa-chart-line"></i> Data Analytics</span>
+              <span class="tag"><i class="fa-solid fa-puzzle-piece"></i> Problem Solving</span>
+              <span class="tag"><i class="fa-solid fa-users"></i> Team Collaboration</span>
+            </div>
+          </div>
+
+          <div class="about-card key-highlights-card tilt-card reveal-on-scroll">
+            <h3>Key Attributes & Focus</h3>
+            <ul class="highlights-list">
+              <li>
+                <div class="hl-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <div>
+                  <strong>Hands-on Project Development</strong>
+                  <p>Implemented end-to-end applications across Python image/video processing, Java Spring Boot REST architectures, and reactive web interfaces.</p>
+                </div>
+              </li>
+              <li>
+                <div class="hl-icon"><i class="fa-solid fa-database"></i></div>
+                <div>
+                  <strong>Data & Backend Proficiencies</strong>
+                  <p>Certified in MongoDB & DBMS; proficient in MySQL, JDBC, Spring Boot, schema normalization, and document data models.</p>
+                </div>
+              </li>
+              <li>
+                <div class="hl-icon"><i class="fa-solid fa-microphone"></i></div>
+                <div>
+                  <strong>Public Speaking & Collaboration</strong>
+                  <p>Experienced in seminar technical presentations, collaborative teamwork, adaptable time management, and proactive leadership.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section bg-elevated" id="education">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-graduation-cap"></i> Academic Background</span>
+          <h2 class="section-title">Education</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot current">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-card tilt-card">
+              <div class="timeline-card-header">
+                <span class="education-badge pursuing">Pursuing (2024 - Present)</span>
+                <span class="education-affiliation"><i class="fa-solid fa-shield-halved"></i> VTU Affiliation</span>
+              </div>
+              <h3 class="education-degree">Bachelor of Engineering in Computer Science and Engineering</h3>
+              <div class="education-institution">
+                <i class="fa-solid fa-building-columns text-accent"></i>
+                <span>Alva's Institute of Engineering and Technology (AIET)</span>
+              </div>
+              <div class="education-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Karnataka, India</span>
+              </div>
+              <p class="education-notes">
+                Coursework and practical laboratory exposure focused on core computer science foundations, algorithms, object-oriented software engineering, DBMS, and distributed backend frameworks.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="timeline-card tilt-card">
+              <div class="timeline-card-header">
+                <span class="education-badge">Pre-University</span>
+              </div>
+              <h3 class="education-degree">Pre-University Course (PUC) - Science</h3>
+              <div class="education-institution">
+                <i class="fa-solid fa-building-columns text-accent"></i>
+                <span>Sri Adi Chunchanagiri Independent PU College (SAIPUC)</span>
+              </div>
+              <div class="education-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Shivamogga, Karnataka</span>
+              </div>
+              <p class="education-notes">
+                Strong science and mathematics grounding cultivating quantitative reasoning, physics intuition, and structured analytical problem-solving skills.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="timeline-card tilt-card">
+              <div class="timeline-card-header">
+                <span class="education-badge">Secondary Education</span>
+              </div>
+              <h3 class="education-degree">Secondary School Leaving Certificate (SSLC)</h3>
+              <div class="education-institution">
+                <i class="fa-solid fa-building-columns text-accent"></i>
+                <span>JAIN PUBLIC SCHOOL</span>
+              </div>
+              <div class="education-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Shivamogga, Karnataka</span>
+              </div>
+              <p class="education-notes">
+                Comprehensive secondary schooling emphasizing fundamental sciences, analytical fundamentals, academic discipline, and public seminar activities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-wrench"></i> Technical Stack & Capabilities</span>
+          <h2 class="section-title">Skills & Proficiencies</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="skills-filter-container reveal-on-scroll">
+          <button class="filter-btn active" data-filter="all">All Skills</button>
+          <button class="filter-btn" data-filter="languages">Programming Languages</button>
+          <button class="filter-btn" data-filter="web-backend">Web & Backend</button>
+          <button class="filter-btn" data-filter="database-tools">Database & Tools</button>
+          <button class="filter-btn" data-filter="concepts">Core Concepts</button>
+          <button class="filter-btn" data-filter="non-tech">Non-Technical</button>
+        </div>
+
+        <!-- Skills Cards Grid with Spotlight Effect -->
+        <div class="skills-grid">
+          <!-- Card 1: Programming Languages -->
+          <div class="skill-category-card tilt-card reveal-on-scroll" data-category="languages">
+            <div class="skill-card-top">
+              <div class="skill-cat-icon"><i class="fa-solid fa-code"></i></div>
+              <h3>Programming Languages</h3>
+            </div>
+            <div class="tags-cluster">
+              <span class="skill-pill"><i class="fa-brands fa-c"></i> C</span>
+              <span class="skill-pill"><i class="fa-brands fa-java"></i> Java</span>
+              <span class="skill-pill"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="skill-pill"><i class="fa-solid fa-database"></i> SQL</span>
+              <span class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Web Technologies -->
+          <div class="skill-category-card tilt-card reveal-on-scroll" data-category="web-backend">
+            <div class="skill-card-top">
+              <div class="skill-cat-icon"><i class="fa-solid fa-globe"></i></div>
+              <h3>Web Technologies</h3>
+            </div>
+            <div class="tags-cluster">
+              <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML</span>
+              <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+              <span class="skill-pill"><i class="fa-solid fa-server"></i> JSP</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Backend Development -->
+          <div class="skill-category-card tilt-card reveal-on-scroll" data-category="web-backend">
+            <div class="skill-card-top">
+              <div class="skill-cat-icon"><i class="fa-solid fa-gears"></i></div>
+              <h3>Backend Development</h3>
+            </div>
+            <div class="tags-cluster">
+              <span class="skill-pill"><i class="fa-brands fa-java"></i> Java Servlets</span>
+              <span class="skill-pill"><i class="fa-solid fa-plug"></i> JDBC</span>
+              <span class="skill-pill"><i class="fa-solid fa-leaf"></i> Spring Boot</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Database Management -->
+          <div class="skill-category-card tilt-card reveal-on-scroll" data-category="database-tools">
+            <div class="skill-card-top">
+              <div class="skill-cat-icon"><i class="fa-solid fa-database"></i></div>
+              <h3>Database Management</h3>
+            </div>
+            <div class="tags-cluster">
+              <span class="skill-pill"><i class="fa-solid fa-database"></i> MySQL</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Frameworks & Developer Tools -->
+          <div class="skill-category-card tilt-card reveal-on-scroll" data-category="database-tools">
+            <div class="skill-card-top">
+              <div class="skill-cat-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+              <h3>Frameworks & Tools</h3>
+            </div>
+            <div class="tags-cluster">
+              <span class="skill-pill"><i class="fa-brands fa-react"></i> React</span>
+              <span class="skill-pill"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+              <span class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span class="skill-pill"><i class="fa-brands fa-github"></i> GitHub</span>
+              <span class="skill-pill"><i class="fa-solid fa-cube"></i> Eclipse</span>
+              <span class="skill-pill"><i class="fa-solid fa-feather"></i> Apache Tomcat</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Core Concepts -->
+          <div class="skill-category-card tilt-card reveal-on-scroll" data-category="concepts">
+            <div class="skill-card-top">
+              <div class="skill-cat-icon"><i class="fa-solid fa-brain"></i></div>
+              <h3>Core Concepts</h3>
+            </div>
+            <div class="tags-cluster">
+              <span class="skill-pill"><i class="fa-solid fa-layer-group"></i> DBMS</span>
+              <span class="skill-pill"><i class="fa-solid fa-network-wired"></i> Data Structures</span>
+              <span class="skill-pill"><i class="fa-solid fa-shapes"></i> Object-Oriented Programming (OOP)</span>
+              <span class="skill-pill"><i class="fa-solid fa-diagram-project"></i> MVC Architecture</span>
+              <span class="skill-pill"><i class="fa-solid fa-cloud-arrow-up"></i> REST APIs</span>
+            </div>
+          </div>
+
+          <!-- Card 7: Non-Technical Skills -->
+          <div class="skill-category-card span-full-width tilt-card reveal-on-scroll" data-category="non-tech">
+            <div class="skill-card-top">
+              <div class="skill-cat-icon"><i class="fa-solid fa-people-group"></i></div>
+              <h3>Non-Technical & Professional Capabilities</h3>
+            </div>
+            <div class="non-tech-grid">
+              <div class="non-tech-item">
+                <i class="fa-solid fa-microphone-lines text-accent"></i>
+                <div>
+                  <strong>Communication & Public Speaking</strong>
+                  <p>Practical seminar presentation experience delivering complex technical concepts clearly to diverse audiences.</p>
+                </div>
+              </div>
+              <div class="non-tech-item">
+                <i class="fa-solid fa-handshake text-accent"></i>
+                <div>
+                  <strong>Teamwork & Collaboration</strong>
+                  <p>Active contributor in collaborative group environments, peer code reviews, and academic team projects.</p>
+                </div>
+              </div>
+              <div class="non-tech-item">
+                <i class="fa-solid fa-clock text-accent"></i>
+                <div>
+                  <strong>Time Management & Adaptability</strong>
+                  <p>Efficiently balancing coursework priorities, project milestones, and quickly adopting evolving software tools.</p>
+                </div>
+              </div>
+              <div class="non-tech-item">
+                <i class="fa-solid fa-lightbulb text-accent"></i>
+                <div>
+                  <strong>Analytical & Logical Thinking</strong>
+                  <p>Structured problem formulation, algorithmic design, and data-driven deductive reasoning for debugging.</p>
+                </div>
+              </div>
+              <div class="non-tech-item">
+                <i class="fa-solid fa-flag text-accent"></i>
+                <div>
+                  <strong>Leadership & Initiative</strong>
+                  <p>Taking ownership of development challenges, proactively designing solutions, and driving team success.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS WITH REAL UI PREVIEWS & 3D TILT (Animation 4) -->
+    <section class="section bg-elevated" id="projects">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-laptop-code"></i> Real-World Implementation</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-desc">Practical applications engineered with Python, Java Spring Boot, and React.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Traffic Violation Detection -->
+          <article class="project-card tilt-card reveal-on-scroll">
+            <div class="project-media-wrap">
+              <img src="assets/images/traffic_preview.jpg" alt="Traffic Violation Detection System Interface Preview" class="project-img" width="640" height="360" loading="lazy">
+              <div class="project-media-badge">
+                <i class="fa-brands fa-python"></i> Python
+              </div>
+            </div>
+
+            <div class="project-card-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-traffic-light"></i>
+              </div>
+              <div class="project-meta">
+                <span class="project-category">Computer Vision & Automation</span>
+                <h3 class="project-title">Traffic Violation Detection</h3>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-summary">
+                A Python-based application designed to identify and monitor vehicular infractions through automated image and video processing techniques.
+              </p>
+              
+              <ul class="project-features">
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Developed a Python-based application for detecting and identifying traffic violations.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Implemented image/video processing techniques to analyze traffic-related activities.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Designed the system to assist in identifying violations and improving automated traffic monitoring.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card-footer">
+              <div class="project-tags">
+                <span class="tag-badge"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="tag-badge"><i class="fa-solid fa-video"></i> Video Processing</span>
+                <span class="tag-badge"><i class="fa-solid fa-eye"></i> Automated Monitoring</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" title="View Author's GitHub">
+                  <i class="fa-brands fa-github"></i> GitHub Profile
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Mark Management System -->
+          <article class="project-card tilt-card reveal-on-scroll">
+            <div class="project-media-wrap">
+              <img src="assets/images/mark_management_preview.jpg" alt="Mark Management System Enterprise Interface Preview" class="project-img" width="640" height="360" loading="lazy">
+              <div class="project-media-badge">
+                <i class="fa-solid fa-leaf"></i> Spring Boot
+              </div>
+            </div>
+
+            <div class="project-card-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-chart-column"></i>
+              </div>
+              <div class="project-meta">
+                <span class="project-category">Backend & Enterprise System</span>
+                <h3 class="project-title">Mark Management System</h3>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-summary">
+                A robust Java and Spring Boot backend enterprise application designed to streamline student academic record keeping and evaluation.
+              </p>
+              
+              <ul class="project-features">
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Developed a backend application for managing student academic marks and records.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Implemented REST APIs for adding, retrieving, updating, and managing student mark data.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Integrated MySQL for persistent storage and database management.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card-footer">
+              <div class="project-tags">
+                <span class="tag-badge"><i class="fa-brands fa-java"></i> Java</span>
+                <span class="tag-badge"><i class="fa-solid fa-leaf"></i> Spring Boot</span>
+                <span class="tag-badge"><i class="fa-solid fa-database"></i> MySQL</span>
+                <span class="tag-badge"><i class="fa-solid fa-cloud-arrow-up"></i> REST APIs</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" title="View Author's GitHub">
+                  <i class="fa-brands fa-github"></i> GitHub Profile
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: RapidCare Emergency Response System -->
+          <article class="project-card highlight-border tilt-card reveal-on-scroll">
+            <div class="project-media-wrap">
+              <img src="assets/images/rapidcare_preview.jpg" alt="RapidCare Emergency Response System Web Application Preview" class="project-img" width="640" height="360" loading="lazy">
+              <div class="project-media-badge emergency">
+                <i class="fa-brands fa-react"></i> React Platform
+              </div>
+            </div>
+
+            <div class="project-card-header">
+              <div class="project-icon-box accent-box">
+                <i class="fa-solid fa-truck-medical"></i>
+              </div>
+              <div class="project-meta">
+                <span class="project-category">Healthcare & Web Platform</span>
+                <h3 class="project-title">RapidCare Emergency Response System</h3>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-summary">
+                An emergency response platform designed to facilitate rapid connection between users in distress, hospitals, and ambulance services.
+              </p>
+              
+              <ul class="project-features">
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Developed an emergency response platform designed to connect users with hospitals and ambulance services.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check text-accent"></i>
+                  <span>Implemented a responsive interface for emergency requests and hospital-related information.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card-footer">
+              <div class="project-tags">
+                <span class="tag-badge"><i class="fa-brands fa-react"></i> React</span>
+                <span class="tag-badge"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="tag-badge"><i class="fa-brands fa-css3-alt"></i> Tailwind CSS</span>
+                <span class="tag-badge"><i class="fa-solid fa-code-fork"></i> Context API</span>
+                <span class="tag-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Framer Motion</span>
+                <span class="tag-badge"><i class="fa-solid fa-icons"></i> Lucide icons</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" title="View Author's GitHub">
+                  <i class="fa-brands fa-github"></i> GitHub Profile
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-cta-box reveal-on-scroll">
+          <p>Explore more source repositories and coding explorations on GitHub:</p>
+          <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-brands fa-github"></i> Visit github.com/thanishsthanish-debug
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-award"></i> Professional Validation</span>
+          <h2 class="section-title">Certifications</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="certifications-grid">
+          <!-- Cert 1 -->
+          <div class="cert-card tilt-card reveal-on-scroll">
+            <div class="cert-icon-wrap mongodb-icon">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <div class="cert-content">
+              <span class="cert-issuer">MongoDB University / MongoDB</span>
+              <h3 class="cert-title">MongoDB - From Relational Model (SQL) to MongoDB's Document Model</h3>
+              <p class="cert-description">
+                Comprehensive training bridging relational database concepts (SQL) with document-oriented NoSQL architecture, data modeling, and schema design.
+              </p>
+              <div class="cert-footer">
+                <span class="cert-status-badge"><i class="fa-solid fa-circle-check"></i> Certified Credential</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card tilt-card reveal-on-scroll">
+            <div class="cert-icon-wrap coursera-icon">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <div class="cert-content">
+              <span class="cert-issuer">Coursera</span>
+              <h3 class="cert-title">Data Structures and Algorithms</h3>
+              <p class="cert-description">
+                In-depth coursework covering asymptotic analysis, arrays, linked lists, trees, graphs, sorting, searching algorithms, and optimal problem solving.
+              </p>
+              <div class="cert-footer">
+                <span class="cert-status-badge"><i class="fa-solid fa-circle-check"></i> Certified Credential</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card tilt-card reveal-on-scroll">
+            <div class="cert-icon-wrap coursera-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <div class="cert-content">
+              <span class="cert-issuer">Coursera</span>
+              <h3 class="cert-title">Database Management Systems</h3>
+              <p class="cert-description">
+                Rigorous grounding in relational algebra, normal forms (1NF-BCNF), transaction management (ACID properties), indexing, and SQL optimization.
+              </p>
+              <div class="cert-footer">
+                <span class="cert-status-badge"><i class="fa-solid fa-circle-check"></i> Certified Credential</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS SECTION -->
+    <section class="section bg-elevated" id="interests">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-compass"></i> Domain Passions</span>
+          <h2 class="section-title">Areas of Interest</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="interests-grid">
+          <!-- Interest 1 -->
+          <div class="interest-card tilt-card reveal-on-scroll">
+            <div class="interest-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3>Data Analytics</h3>
+            <p>Uncovering trends, patterns, and insights through quantitative statistical evaluation and programming workflows.</p>
+          </div>
+
+          <!-- Interest 2 -->
+          <div class="interest-card tilt-card reveal-on-scroll">
+            <div class="interest-icon">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <h3>Data Visualization</h3>
+            <p>Transforming complex datasets into clear, intuitive, and interactive dashboards and graphical summaries.</p>
+          </div>
+
+          <!-- Interest 3 -->
+          <div class="interest-card tilt-card reveal-on-scroll">
+            <div class="interest-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3>Database Management</h3>
+            <p>Designing performant relational and document schemas, query optimization, and persistent data architecture.</p>
+          </div>
+
+          <!-- Interest 4 -->
+          <div class="interest-card tilt-card reveal-on-scroll">
+            <div class="interest-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <h3>Data-Driven Problem Solving</h3>
+            <p>Leveraging empirical metrics and evidence-based methodologies to resolve real-world algorithmic hurdles.</p>
+          </div>
+
+          <!-- Interest 5 -->
+          <div class="interest-card tilt-card reveal-on-scroll">
+            <div class="interest-icon">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h3>Business Intelligence</h3>
+            <p>Harnessing data pipelines and reporting frameworks to empower strategic planning and operational decision-making.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-subtitle"><i class="fa-solid fa-paper-plane"></i> Get in Touch</span>
+          <h2 class="section-title">Contact & Connect</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Contact Details Cards -->
+          <div class="contact-cards-column reveal-on-scroll">
+            <div class="contact-intro">
+              <h3>Let's Discuss Opportunities</h3>
+              <p>
+                I am actively seeking internship opportunities where I can apply my programming, database, and analytical skills. Feel free to reach out via phone, email, or social profiles!
+              </p>
+            </div>
+
+            <!-- Email Card -->
+            <div class="contact-info-card">
+              <div class="contact-card-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-label">Email Address</span>
+                <a href="mailto:thanish.s7134@gmail.com" class="contact-value" id="email-text">thanish.s7134@gmail.com</a>
+              </div>
+              <div class="contact-actions">
+                <button class="btn-icon" onclick="copyToClipboard('thanish.s7134@gmail.com', 'Email copied to clipboard!')" title="Copy Email" aria-label="Copy Email">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+                <a href="mailto:thanish.s7134@gmail.com" class="btn-icon" title="Send Email" aria-label="Send Email">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="contact-info-card">
+              <div class="contact-card-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-label">Phone Number</span>
+                <a href="tel:8296457646" class="contact-value" id="phone-text">+91 8296457646</a>
+              </div>
+              <div class="contact-actions">
+                <button class="btn-icon" onclick="copyToClipboard('8296457646', 'Phone number copied to clipboard!')" title="Copy Phone Number" aria-label="Copy Phone Number">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+                <a href="tel:8296457646" class="btn-icon" title="Call Now" aria-label="Call Phone">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="contact-info-card">
+              <div class="contact-card-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-label">LinkedIn Profile</span>
+                <a href="https://linkedin.com/in/thanish-s-a9aa77432" target="_blank" rel="noopener noreferrer" class="contact-value">
+                  linkedin.com/in/thanish-s-a9aa77432
+                </a>
+              </div>
+              <div class="contact-actions">
+                <button class="btn-icon" onclick="copyToClipboard('https://linkedin.com/in/thanish-s-a9aa77432', 'LinkedIn link copied to clipboard!')" title="Copy LinkedIn URL" aria-label="Copy LinkedIn Link">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+                <a href="https://linkedin.com/in/thanish-s-a9aa77432" target="_blank" rel="noopener noreferrer" class="btn-icon" title="Open LinkedIn" aria-label="Open LinkedIn Profile">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="contact-info-card">
+              <div class="contact-card-icon">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-label">GitHub Repository</span>
+                <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" class="contact-value">
+                  github.com/thanishsthanish-debug
+                </a>
+              </div>
+              <div class="contact-actions">
+                <button class="btn-icon" onclick="copyToClipboard('https://github.com/thanishsthanish-debug', 'GitHub URL copied to clipboard!')" title="Copy GitHub URL" aria-label="Copy GitHub Link">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+                <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" class="btn-icon" title="Open GitHub" aria-label="Open GitHub Profile">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Message Form -->
+          <div class="contact-form-column reveal-on-scroll">
+            <div class="form-card">
+              <div class="form-header">
+                <h3><i class="fa-solid fa-paper-plane text-accent"></i> Send a Direct Message</h3>
+                <p>Compose your message below. Submitting will launch your default email client addressed directly to <strong>thanish.s7134@gmail.com</strong>.</p>
+              </div>
+
+              <form id="contact-form" onsubmit="handleMessageSubmit(event)">
+                <div class="form-group">
+                  <label for="sender-name">Your Name</label>
+                  <div class="input-wrap">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="sender-name" placeholder="e.g. Recruiter / Jane Doe" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="sender-subject">Subject</label>
+                  <div class="input-wrap">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <input type="text" id="sender-subject" placeholder="e.g. Internship Opportunity / Technical Collaboration" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="sender-message">Message</label>
+                  <div class="input-wrap textarea-wrap">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <textarea id="sender-message" rows="5" placeholder="Hi Thanish, I reviewed your developer portfolio and would like to discuss an opportunity..." required></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-glow">
+                  <i class="fa-solid fa-paper-plane"></i> Send Email to Thanish
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back To Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-text">THANISH</span>
+          <span class="logo-accent">.DEV</span>
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-tagline">
+          Enthusiastic Computer Science and Engineering Student | Aspiring Software Developer
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#toolbox">Toolbox CLI</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#interests">Interests</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> THANISH S. All information strictly verified.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/thanishsthanish-debug" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com/in/thanish-s-a9aa77432" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:thanish.s7134@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="tel:8296457646" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

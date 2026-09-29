@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THANISH S. | Developer Portfolio (Pro Edition)</title>
+  <!-- Allowlisted Tailwind CSS dependency for Generative UI artifacts -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* Custom scrollbar and ambient animation */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+
+    @keyframes rotateHalo {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .rotating-halo {
+      background: conic-gradient(from 0deg, transparent, #38bdf8, #818cf8, transparent 80%);
+      animation: rotateHalo 8s linear infinite;
+    }
+
+    @keyframes floatChip {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    .float-1 { animation: floatChip 4.5s ease-in-out infinite; }
+    .float-2 { animation: floatChip 5.5s ease-in-out infinite 0.6s; }
+    .float-3 { animation: floatChip 5.0s ease-in-out infinite 1.2s; }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-slate-200 font-sans antialiased min-h-screen relative selection:bg-sky-500 selection:text-white">
+
+  <!-- Interactive Particle Background Canvas -->
+  <canvas id="p-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="fixed -top-40 -right-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-20 -left-40 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#0f172a]/85 border-b border-slate-800 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-1 font-mono font-bold text-lg tracking-tight group">
+        <span class="text-sky-400">&lt;</span>
+        <span class="text-white">THANISH</span>
+        <span class="text-sky-400">.DEV</span>
+        <span class="text-sky-400">/&gt;</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
+        <a href="#cli" class="hover:text-sky-400 transition-colors">CLI Terminal</a>
+        <a href="#education" class="hover:text-sky-400 transition-colors">Education</a>
+        <a href="#skills" class="hover:text-sky-400 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-sky-400 transition-colors">Projects</a>
+        <a href="#certifications" class="hover:text-sky-400 transition-colors">Certifications</a>
+        <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-sky-400/40 text-sky-400 text-xs font-semibold hover:bg-sky-400/10 hover:border-sky-400 transition-all shadow-sm">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-24">
+
+    <!-- HERO SECTION WITH 3D AVATAR & METRICS -->
+    <section id="hero" class="pt-6 sm:pt-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Open for Internship Opportunities</span>
+        </div>
+
+        <div class="space-y-2">
+          <p class="text-sm font-medium tracking-wide uppercase text-slate-400">Hello, I am</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            <span class="bg-gradient-to-r from-sky-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">THANISH S.</span>
+          </h1>
+          <!-- Dynamic Typing -->
+          <p class="text-base sm:text-lg font-mono text-sky-400 flex items-center gap-2">
+            <span>&gt;</span>
+            <span id="typewriter-text" class="text-white font-semibold">Computer Science & Engineering Student</span>
+            <span class="text-sky-400 animate-pulse">|</span>
+          </p>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+          Enthusiastic Computer Science and Engineering student interested in software development, data analytics, and problem solving. Seeking an internship opportunity to apply my programming and analytical skills to real-world projects, gain practical industry experience, and contribute effectively to a professional development team.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-4 pt-1">
+          <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/25 hover:-translate-y-0.5">
+            Explore Projects
+          </a>
+          <a href="#cli" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-white font-semibold text-sm border border-slate-700 transition-all hover:border-sky-400/50 hover:-translate-y-0.5">
+            Try Developer CLI
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-sky-400/40 text-sky-400 hover:bg-sky-400/10 font-semibold text-sm transition-all">
+            Contact Me
+          </a>
+        </div>
+
+        <!-- Metric Counters Ribbon -->
+        <div class="flex flex-wrap items-center gap-6 p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
+          <div>
+            <span class="text-2xl font-bold font-mono text-white">3</span><span class="text-sky-400 font-bold">+</span>
+            <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-medium">Projects</span>
+          </div>
+          <div class="w-px h-8 bg-slate-800"></div>
+          <div>
+            <span class="text-2xl font-bold font-mono text-white">3</span>
+            <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-medium">Certifications</span>
+          </div>
+          <div class="w-px h-8 bg-slate-800"></div>
+          <div>
+            <span class="text-2xl font-bold font-mono text-white">15</span><span class="text-sky-400 font-bold">+</span>
+            <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-medium">Core Skills</span>
+          </div>
+          <div class="w-px h-8 bg-slate-800"></div>
+          <div>
+            <span class="text-lg font-bold font-mono text-sky-400">AIET</span>
+            <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-medium">VTU Affiliated</span>
+          </div>
+        </div>
+
+        <!-- Direct Social Strip -->
+        <div class="flex items-center gap-3">
+          <span class="text-xs uppercase font-mono text-slate-400 font-semibold">Direct Links:</span>
+          <a href="https://github.com/thanishsthanish-debug" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-xs text-sky-300 hover:border-sky-400 transition-colors">GitHub Profile</a>
+          <a href="https://linkedin.com/in/thanish-s-a9aa77432" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-xs text-sky-300 hover:border-sky-400 transition-colors">LinkedIn</a>
+          <a href="mailto:thanish.s7134@gmail.com" class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-xs text-sky-300 hover:border-sky-400 transition-colors">Email</a>
+        </div>
+      </div>
+
+      <!-- 3D Avatar Showcase with Orbiting Badges -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-72 sm:w-80 h-72 sm:h-80">
+          <!-- Rotating Halo Ring -->
+          <div class="absolute -inset-3 rounded-full rotating-halo blur-md opacity-70"></div>
+          
+          <!-- Avatar Container -->
+          <div class="relative w-full h-full rounded-full overflow-hidden border-2 border-sky-400/50 shadow-2xl bg-slate-900">
+            <img src="developer_avatar_1790665395317.jpg" alt="THANISH S. Developer Avatar" class="w-full h-full object-cover">
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/90 border border-sky-400/40 backdrop-blur-md px-3 py-1 rounded-full text-center whitespace-nowrap">
+              <span class="text-xs font-bold text-white block">THANISH S.</span>
+              <span class="text-[10px] font-mono text-sky-400">B.E. CSE Student</span>
+            </div>
+          </div>
+
+          <!-- Orbit Floating Badges -->
+          <div class="absolute -top-2 -right-4 px-3 py-1 rounded-full bg-slate-900/90 border border-sky-400/40 text-xs font-mono text-white shadow-lg float-1">
+            Java & Spring Boot
+          </div>
+          <div class="absolute bottom-6 -left-8 px-3 py-1 rounded-full bg-slate-900/90 border border-sky-400/40 text-xs font-mono text-white shadow-lg float-2">
+            Python & Vision
+          </div>
+          <div class="absolute -bottom-3 right-4 px-3 py-1 rounded-full bg-slate-900/90 border border-sky-400/40 text-xs font-mono text-white shadow-lg float-3">
+            React & Tailwind
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVELOPER INTERACTIVE CLI TOOL -->
+    <section id="cli" class="space-y-6">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase text-sky-400 tracking-wider">Interactive Terminal</span>
+        <h2 class="text-3xl font-bold text-white">Developer Profile CLI</h2>
+        <div class="w-12 h-1 bg-sky-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="max-w-3xl mx-auto rounded-xl border border-sky-500/30 bg-[#090e1a] shadow-2xl overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-3 bg-[#0f172a] border-b border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+          </div>
+          <span class="text-xs font-mono text-slate-400">thanish@terminal:~ (bash)</span>
+          <button onclick="clearCli()" class="text-xs text-slate-400 hover:text-sky-400 font-mono">Clear</button>
+        </div>
+
+        <div id="cli-output" class="p-5 font-mono text-xs text-slate-300 space-y-2 min-h-[200px] max-h-[380px] overflow-y-auto">
+          <div class="text-sky-400 font-bold">Welcome to THANISH S.'s Developer CLI!</div>
+          <div class="text-slate-400">Type <span class="text-amber-300">help</span> to list commands or click the chips below.</div>
+          <div class="pt-1">
+            <span class="text-emerald-400 font-bold">visitor@thanish:~$</span> <span class="text-sky-300">quick-info</span>
+          </div>
+          <div class="pl-3 border-l-2 border-sky-500 text-slate-300">
+            • THANISH S. — B.E. Computer Science & Eng. @ AIET (VTU)<br>
+            • Email: thanish.s7134@gmail.com | Phone: 8296457646
+          </div>
+        </div>
+
+        <form onsubmit="handleCli(event)" class="flex items-center px-4 py-2.5 bg-[#0b1120] border-t border-slate-800 gap-2">
+          <span class="text-emerald-400 font-bold font-mono text-xs">visitor@thanish:~$</span>
+          <input type="text" id="cli-in" placeholder="type 'help', 'skills', 'projects', 'contact'..." class="flex-1 bg-transparent text-white font-mono text-xs focus:outline-none">
+          <button type="submit" class="px-3 py-1 bg-sky-500 text-slate-950 font-bold text-xs rounded hover:bg-sky-400 font-mono">Run</button>
+        </form>
+
+        <div class="px-4 py-2.5 bg-slate-900 border-t border-slate-800 flex flex-wrap gap-2 text-xs font-mono">
+          <span class="text-slate-400">Try:</span>
+          <button onclick="runCliCmd('help')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-sky-500/20 text-sky-300">help</button>
+          <button onclick="runCliCmd('skills')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-sky-500/20 text-sky-300">skills</button>
+          <button onclick="runCliCmd('projects')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-sky-500/20 text-sky-300">projects</button>
+          <button onclick="runCliCmd('education')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-sky-500/20 text-sky-300">education</button>
+          <button onclick="runCliCmd('certs')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-sky-500/20 text-sky-300">certs</button>
+          <button onclick="runCliCmd('contact')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-sky-500/20 text-sky-300">contact</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS WITH REAL UI PREVIEWS -->
+    <section id="projects" class="space-y-6">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase text-sky-400 tracking-wider">Software Engineering</span>
+        <h2 class="text-3xl font-bold text-white">Featured Projects</h2>
+        <div class="w-12 h-1 bg-sky-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Project 1: Traffic Detection -->
+        <div class="rounded-xl bg-slate-900/80 border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-sky-400/50 transition-all hover:-translate-y-1">
+          <div class="aspect-video w-full overflow-hidden bg-slate-950 relative">
+            <img src="traffic_detection_preview_1790665412477.jpg" alt="Traffic Violation Detection System" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 px-2 py-0.5 rounded bg-slate-900/90 border border-sky-400/40 text-[10px] font-mono text-sky-300 font-bold">Python</span>
+          </div>
+          <div class="p-5 space-y-3">
+            <span class="text-[11px] font-mono font-semibold text-sky-400 uppercase tracking-wider">Computer Vision</span>
+            <h3 class="text-lg font-bold text-white">Traffic Violation Detection</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Developed a Python-based application for detecting and identifying traffic violations.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Implemented image/video processing techniques to analyze traffic-related activities.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Designed the system to assist in identifying violations and improving automated traffic monitoring.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-5 pt-0 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-slate-400">Python &bull; Video Proc.</span>
+            <a href="https://github.com/thanishsthanish-debug" target="_blank" class="text-xs font-semibold text-sky-400 hover:text-sky-300">GitHub &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Project 2: Mark Management -->
+        <div class="rounded-xl bg-slate-900/80 border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-sky-400/50 transition-all hover:-translate-y-1">
+          <div class="aspect-video w-full overflow-hidden bg-slate-950 relative">
+            <img src="mark_management_preview_1790665434268.jpg" alt="Mark Management System" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 px-2 py-0.5 rounded bg-slate-900/90 border border-sky-400/40 text-[10px] font-mono text-sky-300 font-bold">Spring Boot</span>
+          </div>
+          <div class="p-5 space-y-3">
+            <span class="text-[11px] font-mono font-semibold text-sky-400 uppercase tracking-wider">Backend Systems</span>
+            <h3 class="text-lg font-bold text-white">Mark Management System</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Developed a backend application for managing student academic marks and records.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Implemented REST APIs for adding, retrieving, updating, and managing student mark data.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Integrated MySQL for persistent storage and database management.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-5 pt-0 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-slate-400">Java &bull; MySQL &bull; REST</span>
+            <a href="https://github.com/thanishsthanish-debug" target="_blank" class="text-xs font-semibold text-sky-400 hover:text-sky-300">GitHub &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Project 3: RapidCare -->
+        <div class="rounded-xl bg-slate-900/80 border border-sky-500/30 overflow-hidden flex flex-col justify-between hover:border-sky-400 transition-all hover:-translate-y-1">
+          <div class="aspect-video w-full overflow-hidden bg-slate-950 relative">
+            <img src="rapidcare_preview_1790665463513.jpg" alt="RapidCare Emergency Response System" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 px-2 py-0.5 rounded bg-slate-900/90 border border-red-500/40 text-[10px] font-mono text-red-400 font-bold">React Platform</span>
+          </div>
+          <div class="p-5 space-y-3">
+            <span class="text-[11px] font-mono font-semibold text-sky-400 uppercase tracking-wider">Healthcare Tech</span>
+            <h3 class="text-lg font-bold text-white">RapidCare Emergency System</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Developed an emergency response platform designed to connect users with hospitals and ambulance services.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-400 font-bold">•</span>
+                <span>Implemented a responsive interface for emergency requests and hospital-related information.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-5 pt-0 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-slate-400">React &bull; Tailwind &bull; Framer</span>
+            <a href="https://github.com/thanishsthanish-debug" target="_blank" class="text-xs font-semibold text-sky-400 hover:text-sky-300">GitHub &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX WITH TABS -->
+    <section id="skills" class="space-y-6">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase text-sky-400 tracking-wider">Technical Stack</span>
+        <h2 class="text-3xl font-bold text-white">Skills & Competencies</h2>
+        <div class="w-12 h-1 bg-sky-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2 text-sky-400">&lt;/&gt; Programming Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">C</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Java</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Python</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">SQL</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2 text-sky-400">🌐 Web & Backend</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">HTML</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">CSS</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">JSP</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Java Servlets</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">JDBC</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Spring Boot</span>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2 text-sky-400">🛠️ Database & Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">MySQL</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">React</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Bootstrap</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Git</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">GitHub</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Eclipse</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Apache Tomcat</span>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2 text-sky-400">🧠 Core Concepts</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">DBMS</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">Data Structures</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">OOP</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">MVC</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-sky-300">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3 md:col-span-2">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2 text-sky-400">🤝 Non-Technical Strengths</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+            <div class="p-2 rounded bg-slate-800/50"><strong>Public Speaking:</strong> Seminar presentation experience.</div>
+            <div class="p-2 rounded bg-slate-800/50"><strong>Teamwork:</strong> Collaborative peer development.</div>
+            <div class="p-2 rounded bg-slate-800/50"><strong>Time Management:</strong> Adaptability to evolving milestones.</div>
+            <div class="p-2 rounded bg-slate-800/50"><strong>Leadership:</strong> Taking ownership of technical hurdles.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="space-y-6">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase text-sky-400 tracking-wider">Get in Touch</span>
+        <h2 class="text-3xl font-bold text-white">Contact & Connect</h2>
+        <div class="w-12 h-1 bg-sky-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Contact Cards -->
+        <div class="space-y-3">
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-mono text-slate-400 block">Email</span>
+              <a href="mailto:thanish.s7134@gmail.com" class="text-sm font-semibold text-white hover:text-sky-400">thanish.s7134@gmail.com</a>
+            </div>
+            <button onclick="copy('thanish.s7134@gmail.com', 'Email copied!')" class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 text-xs font-mono">Copy</button>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-mono text-slate-400 block">Phone</span>
+              <a href="tel:8296457646" class="text-sm font-semibold text-white hover:text-sky-400">+91 8296457646</a>
+            </div>
+            <button onclick="copy('8296457646', 'Phone copied!')" class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 text-xs font-mono">Copy</button>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-mono text-slate-400 block">LinkedIn</span>
+              <a href="https://linkedin.com/in/thanish-s-a9aa77432" target="_blank" class="text-sm font-semibold text-white hover:text-sky-400">thanish-s-a9aa77432</a>
+            </div>
+            <a href="https://linkedin.com/in/thanish-s-a9aa77432" target="_blank" class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 text-xs font-mono">Open &rarr;</a>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-mono text-slate-400 block">GitHub</span>
+              <a href="https://github.com/thanishsthanish-debug" target="_blank" class="text-sm font-semibold text-white hover:text-sky-400">thanishsthanish-debug</a>
+            </div>
+            <a href="https://github.com/thanishsthanish-debug" target="_blank" class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 text-xs font-mono">Open &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Quick Mailer -->
+        <form onsubmit="handleMail(event)" class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-4">
+          <h3 class="text-base font-bold text-white">Send Direct Message</h3>
+          <div>
+            <label class="text-xs text-slate-400 block mb-1 font-mono">Your Name</label>
+            <input type="text" id="fn" required placeholder="Alex Doe" class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white focus:border-sky-400 focus:outline-none">
+          </div>
+          <div>
+            <label class="text-xs text-slate-400 block mb-1 font-mono">Subject</label>
+            <input type="text" id="fs" required placeholder="Internship Opportunity" class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white focus:border-sky-400 focus:outline-none">
+          </div>
+          <div>
+            <label class="text-xs text-slate-400 block mb-1 font-mono">Message</label>
+            <textarea id="fm" rows="3" required placeholder="Hi Thanish..." class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white focus:border-sky-400 focus:outline-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs transition-all">
+            Send Email
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 mt-20 py-8 bg-[#090e1a]/80 text-center text-xs text-slate-400 font-mono">
+    &copy; THANISH S. All information strictly verified.
+  </footer>
+
+  <script>
+    // Particle canvas
+    const canvas = document.getElementById('p-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      const pts = Array.from({length: 45}, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6
+      }));
+      function loop() {
+        ctx.clearRect(0,0,w,h);
+        pts.forEach(p => {
+          p.x = (p.x + p.vx + w) % w; p.y = (p.y + p.vy + h) % h;
+          ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI*2);
+          ctx.fillStyle = 'rgba(56, 189, 248, 0.4)'; ctx.fill();
+        });
+        requestAnimationFrame(loop);
+      }
+      loop();
+    }
+
+    // CLI logic
+    function handleCli(e) {
+      e.preventDefault();
+      const inEl = document.getElementById('cli-in');
+      const val = inEl.value.trim();
+      if (!val) return;
+      runCliCmd(val);
+      inEl.value = '';
+    }
+
+    function runCliCmd(cmd) {
+      const out = document.getElementById('cli-output');
+      const row = document.createElement('div');
+      row.innerHTML = `<span class="text-emerald-400 font-bold">visitor@thanish:~$</span> <span class="text-sky-300">${cmd}</span>`;
+      out.appendChild(row);
+
+      const res = document.createElement('div');
+      res.className = 'pl-3 border-l-2 border-sky-500 text-slate-300';
+      const c = cmd.toLowerCase().trim();
+
+      if (c === 'help') {
+        res.innerHTML = 'Available: <span class="text-amber-300">skills</span>, <span class="text-amber-300">projects</span>, <span class="text-amber-300">education</span>, <span class="text-amber-300">certs</span>, <span class="text-amber-300">contact</span>';
+      } else if (c === 'skills') {
+        res.innerHTML = '• Languages: C, Java, Python, SQL, JS<br>• Backend: Spring Boot, Servlets, JDBC<br>• DB: MySQL &bull; Tools: React, Git, Tomcat';
+      } else if (c === 'projects') {
+        res.innerHTML = '1. Traffic Violation Detection (Python)<br>2. Mark Management System (Java, Spring Boot, MySQL)<br>3. RapidCare Emergency System (React, Tailwind)';
+      } else if (c === 'education') {
+        res.innerHTML = '• B.E. in CSE (2024-Present) @ AIET (VTU)<br>• PUC Science @ SAIPUC<br>• SSLC @ Jain Public School';
+      } else if (c === 'certs') {
+        res.innerHTML = '• MongoDB: SQL to Document Model<br>• Coursera: Data Structures & Algorithms<br>• Coursera: Database Management Systems';
+      } else if (c === 'contact') {
+        res.innerHTML = '• Email: thanish.s7134@gmail.com<br>• Phone: 8296457646<br>• GitHub: thanishsthanish-debug';
+      } else {
+        res.innerHTML = `Unknown command: '${cmd}'. Type 'help'`;
+      }
+
+      out.appendChild(res);
+      out.scrollTop = out.scrollHeight;
+    }
+
+    function clearCli() {
+      document.getElementById('cli-output').innerHTML = '<div class="text-slate-400">Terminal cleared. Type <span class="text-amber-300">help</span>.</div>';
+    }
+
+    function copy(txt, msg) {
+      navigator.clipboard.writeText(txt).then(() => {
+        const c = document.getElementById('toast-container');
+        const t = document.createElement('div');
+        t.className = 'px-4 py-2 rounded-lg bg-slate-900 border border-sky-400 text-sky-300 text-xs font-mono shadow-xl';
+        t.textContent = msg;
+        c.appendChild(t);
+        setTimeout(() => t.remove(), 2200);
+      });
+    }
+
+    function handleMail(e) {
+      e.preventDefault();
+      const n = document.getElementById('fn').value;
+      const s = document.getElementById('fs').value;
+      const m = document.getElementById('fm').value;
+      window.location.href = `mailto:thanish.s7134@gmail.com?subject=${encodeURIComponent(s + ' - ' + n)}&body=${encodeURIComponent(m)}`;
+    }
+  </script>
+</body>
+</html>
